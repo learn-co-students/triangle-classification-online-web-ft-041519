@@ -13,13 +13,10 @@ class Triangle
     
      
   def kind
-    
-    if (@holder.max - @holder.min <= @holder.sort[1]) || (@holder.min <= 0)
-      begin
+    if (@holder.min<=0) 
         raise TriangleError
-        rescue TriangleError => error
-          puts error.message
-      end  
+    elsif @holder.min + @holder.sort[1] <= @holder.max
+        raise TriangleError
     end 
     
     if @holder.uniq.size == 1
