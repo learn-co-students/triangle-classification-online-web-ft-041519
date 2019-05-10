@@ -11,11 +11,11 @@ attr_accessor :side1, :side2, :side3, :equilateral, :isosceles, :scalene
   end
 
   def kind
-    if side1 <= 0 || side2 <= 0 || side3 <= 0 || side1 + side2 < side3 || side2 + side3 < side1 || side3 + side1 < side2
-      begin
+    if side1 <= 0 || side2 <= 0 || side3 <= 0 || side1 + side2 <= side3 || side2 + side3 <= side1 || side3 + side1 <= side2
+      #begin
         raise TriangleError
-      rescue TriangleError => error
-      end
+      #rescue TriangleError => error
+      #end
     elsif side1 == side2 && side2 == side3
       :equilateral
     elsif (side1 == side2 && side2 != side3) || (side2 == side3 && side3 != side1) || (side3 == side1 && side1 != side2)
@@ -27,8 +27,6 @@ attr_accessor :side1, :side2, :side3, :equilateral, :isosceles, :scalene
 
   class TriangleError < StandardError
     # triangle error code
-    def message
-    end
   end
 
 end
