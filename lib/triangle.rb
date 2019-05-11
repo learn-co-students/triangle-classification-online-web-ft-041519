@@ -19,7 +19,7 @@ class Triangle
   end
   
   class TriangleError < StandardError
-    puts "Error!"    
+    puts "You must give valid triangle side lengths!"    
   end
   
 end
